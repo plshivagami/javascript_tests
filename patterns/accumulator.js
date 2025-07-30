@@ -22,7 +22,13 @@ export function sumToN(n) {
  * @returns `1` if n is 0
  */
 export function factorial(n) {
-  // TODO
+  if (typeof n !== "number") return NaN;
+  if (n < 0) return undefined;
+  let result = 1;
+  for (let i = 2; i <= n; i++) {
+    result *= i;
+  }
+  return result;
 }
 
 /**
@@ -32,7 +38,12 @@ export function factorial(n) {
  * @returns `[]` if n is 0 or negative
  */
 export function buildNArray(n) {
-  // TODO
+  if (typeof n !== "number") return null;
+  const arr = [];
+  for (let i = 1; i <= n; i++) {
+    arr.push(i);
+  }
+  return arr;
 }
 
 /**
@@ -40,7 +51,17 @@ export function buildNArray(n) {
  * @returns {string} the longest string in `strings`
  */
 export function getLongestString(strings) {
-  // TODO
+  if (strings.length === 0) {
+    return "";
+  }
+
+  let longestString = "";
+  strings.forEach((str) => {
+    if (str.length > longestString.length) {
+      longestString = str;
+    }
+  });
+  return longestString;
 }
 
 /**
@@ -48,7 +69,16 @@ export function getLongestString(strings) {
  * @returns {number} the number of students present
  */
 export function countPresent(attendance) {
-  // TODO
+  let countTrues = 0;
+  let countAbsent = 0;
+  for (let i = 0; i < attendance.length; i++) {
+    if (attendance[i]) {
+      countTrues++;
+    } else {
+      countAbsent++;
+    }
+  }
+  return countTrues;
 }
 
 /**
@@ -62,5 +92,15 @@ export function countPresent(attendance) {
  * @returns `null` if `dna` is not a string
  */
 export function complementDNA(dna) {
-  // TODO
+  if (typeof dna !== "string") return null;
+
+  const map = { A: "T", T: "A", C: "G", G: "C" };
+  let out = "";
+
+  for (const base of dna.toUpperCase()) {
+    const comp = map[base];
+    if (!comp) return undefined; // invalid character
+    out += comp;
+  }
+  return out;
 }

@@ -4,6 +4,7 @@
     "test": "vitest"
   },
   "dependencies": {
-    "vitest": "^3.0.4"
+    "vitest": "^3.0.4",
+    "vtest": "^1.1.0"
   }
 }
