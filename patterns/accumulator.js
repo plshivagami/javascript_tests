@@ -6,7 +6,6 @@
  */
 export function sumToN(n) {
   if (typeof n !== "number") return NaN;
-
   let sum = 0;
   for (let i = 1; i <= n; i++) {
     sum += i;
@@ -54,7 +53,6 @@ export function getLongestString(strings) {
   if (strings.length === 0) {
     return "";
   }
-
   let longestString = "";
   strings.forEach((str) => {
     if (str.length > longestString.length) {
